@@ -1,0 +1,25 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jamespahm/NodeJS-Blog.git"
+  },
+  "keywords": [
+    "nodejs",
+    "f8",
+    "nodejs",
+    "blog"
+  ],
+  "author": "jamespahm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jamespahm/NodeJS-Blog/issues"
+  },
+  "homepage": "https://github.com/Jamespahm/NodeJS-Blog#readme"
+}
