@@ -7,7 +7,7 @@ const app = express();
 const port = 3030;
 
 // HTTP logger
-app.use(morgan('combined'));
+// app.use(morgan('combined'));
 
 // Use static folder
 app.use(express.static(path.join(__dirname, 'public')));
