@@ -1,33 +1,48 @@
-<nav class='navbar navbar-expand-lg navbar-light bg-light'>
-    <div class='container-fluid'>
+<nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
+    <div class='container'>
+        <a class='navbar-brand' href='/'>F8 education</a>
         <button
             class='navbar-toggler'
             type='button'
-            data-bs-toggle='collapse'
-            data-bs-target='#navbarTogglerDemo03'
-            aria-controls='navbarTogglerDemo03'
+            data-toggle='collapse'
+            data-target='#navbarSupportedContent'
+            aria-controls='navbarSupportedContent'
             aria-expanded='false'
             aria-label='Toggle navigation'
         >
             <span class='navbar-toggler-icon'></span>
         </button>
-        <a class='navbar-brand' href='/'>Home</a>
-        <div class='collapse navbar-collapse' id='navbarTogglerDemo03'>
-            <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
-                <li class='nav-item'>
-                    <a class='nav-link active' aria-current='page' href='/course'>Course</a>
-                </li>
-                <li class='nav-item'>
-                    <a class='nav-link' href='/search'>Search</a>
-                </li>
-                <li class='nav-item'>
-                    <a class='nav-link' href='/course/create' tabindex='-1' aria-disabled='true'>Create</a>
+
+        <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+            <ul class='navbar-nav ml-auto'>
+                <li class='nav-item dropdown'>
+                    <a
+                        class='nav-link dropdown-toggle'
+                        href='#'
+                        id='navbarDropdown'
+                        role='button'
+                        data-toggle='dropdown'
+                        aria-haspopup='true'
+                        aria-expanded='false'
+                    >
+                        <img
+                            src='https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-6/404494228_1100414251142275_2985755135866774625_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEK4alrqera-qGT85wvfbrcfYePbq_zSr19h49ur_NKvRaVpOh6ee6-O1tPguOawHOQ7jzuMv3r1zWdsdAoE_lz&_nc_ohc=LJzPadIZiUgAX-Mn37v&_nc_ht=scontent.fhan3-3.fna&oh=00_AfDqwJe10C5_c_qtUVS3q5exItUJd6i7PThUETzfrLe5AA&oe=6612B59F'
+                            alt=''
+                            style='height: 34px; width:34px; border-radius:50%'
+                            class='user-avatar'
+                        />
+                        Thu Trang Bùi
+                    </a>
+                    <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                        <a class='dropdown-item' href='/courses/create'>Đăng khóa học</a>
+                        <div class='dropdown-divider'></div>
+                        <a class='dropdown-item' href='/me/stored/courses'>Khóa học của tôi</a>
+                        <a class='dropdown-item' href='/me/stored/news'>Bài viết của tôi</a>
+                        <div class='dropdown-divider'></div>
+                        <a class='dropdown-item' href='#'>Đăng xuất</a>
+                    </div>
                 </li>
             </ul>
-            <form class='d-flex'>
-                <input class='form-control me-2' name='q' type='search' placeholder='Search' aria-label='Search' />
-                <button class='btn btn-outline-success' type='submit'>Search</button>
-            </form>
         </div>
     </div>
 </nav>

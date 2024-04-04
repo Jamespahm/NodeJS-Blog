@@ -1,4 +1,4 @@
-const Course = require('../models/Course');
+const Course = require('../models/Course.model');
 
 class SiteController {
     // [GET] /home

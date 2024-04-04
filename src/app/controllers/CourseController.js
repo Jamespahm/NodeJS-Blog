@@ -1,4 +1,4 @@
-const Course = require('../models/Course');
+const Course = require('../models/Course.model');
 const { mongooseToObject } = require('../../util/mongoose');
 
 class CourseController {
@@ -7,7 +7,7 @@ class CourseController {
         Course.find({})
             .lean()
             .then((courses) => {
-                res.render('course', { courses });
+                res.render('courses', { courses });
             })
             .catch((error) => {
                 next(error);
@@ -19,7 +19,7 @@ class CourseController {
         Course.findOne({ slug: req.params.slug })
             .then((course) => {
                 if (course) {
-                    res.render('course/course-detail', { course: mongooseToObject(course) });
+                    res.render('courses/course-detail', { course: mongooseToObject(course) });
                 } else {
                     // Không tìm thấy khóa học với slug đã cung cấp, chuyển hướng sang trang 404
                     res.status(404).render('errors/404', { layout: false });
@@ -32,7 +32,7 @@ class CourseController {
 
     // [GET] /course/create
     create(req, res, next) {
-        res.render('course/create');
+        res.render('courses/create');
     }
 
     // [POST] /course/store
@@ -42,9 +42,27 @@ class CourseController {
         const course = new Course(formData);
         course
             .save()
-            .then(() => res.redirect('/course'))
+            .then(() => res.redirect('/courses'))
             .catch((error) => {});
         // res.send('Saved');
+    }
+
+    // [GET] /courses/:id/edit
+    edit(req, res, next) {
+        Course.findById(req.params.id)
+            .then((course) =>
+                res.render('courses/edit', {
+                    course: mongooseToObject(course),
+                }),
+            )
+            .catch(next);
+    }
+
+    // [PUT] /courses/:id
+    update(req, res, next) {
+        Course.updateOne({ _id: req.params.id }, req.body)
+            .then(() => res.redirect('/me/stored/courses'))
+            .catch(next);
     }
 }
 
