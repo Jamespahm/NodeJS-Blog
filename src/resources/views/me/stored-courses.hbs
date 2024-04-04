@@ -58,26 +58,13 @@
     </div>
 </div>
 
-
-{{!-- Delete hidden form --}}
-<form name="delete-course-form" method="POST"></form>
+{{! Delete hidden form }}
+<form name='delete-course-form' method='POST'></form>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var courseId;
-        var deleteForm = document.forms['delete-course-form'];
-        var btnDeleteCourse = document.getElementById('btn-delete-course');
-
-        // When dialog confirm clicked
-        $('#delete-course-modal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget);
-            courseId = button.data('id');
-        });
-        
-        // When delete course btn clicked
-        btnDeleteCourse.onclick = function () {
-            deleteForm.action = '/courses/' + courseId + '?_method=DELETE';
-            deleteForm.submit();
-        }
-    });
+    document.addEventListener('DOMContentLoaded', function() { var courseId; var deleteForm =
+    document.forms['delete-course-form']; var btnDeleteCourse = document.getElementById('btn-delete-course');
+    $('#delete-course-modal').on('show.bs.modal', function (event) { var button = $(event.relatedTarget); courseId =
+    button.data('id'); }); btnDeleteCourse.onclick = function () { deleteForm.action = '/courses/' + courseId +
+    '?_method=DELETE'; deleteForm.submit(); } });
 </script>
