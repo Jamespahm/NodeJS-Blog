@@ -8,6 +8,8 @@ const moment = require('moment');
 const route = require('./routers/index.router');
 const db = require('./config/db');
 
+const SortMiddleware = require('./app/middlewares/SortMiddleware')
+
 //Connect to DB
 db.connect();
 
@@ -20,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'));
 
+app.use(SortMiddleware);
 // Use static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -31,6 +34,36 @@ app.engine(
             sum: (a, b) => a + b,
             formatDate: (date) => {
                 return moment(date).format('HH:mm:ss DD-MM-YYYY ');
+            },
+
+            sortable:(field, sort)=>{
+                const sortType = field === sort.column ? sort.type : 'default'
+
+                const icons = {
+                    default: 'fa-solid fa-sort',
+                    asc: 'fa-duotone fa-sort',
+                    desc: 'fa-duotone fa-sort fa-flip-vertical',
+                }
+                const types = {
+                    default: 'asc',
+                    asc: 'desc',
+                    desc: 'default',
+                }
+                const icon = icons[sortType];
+                const type = types[sortType]
+
+                if(type === 'default') {
+                     
+                return `<a href="?" class="icon-sort"><i class="${icon}"></i></a>`
+                }
+                else {
+
+                    return `
+                        <a href="?_sort&column=${field}&type=${type}" class="icon-sort">
+                            <i class="${icon}"></i>
+                        </a>
+                        `
+                }
             }
         },
     }),

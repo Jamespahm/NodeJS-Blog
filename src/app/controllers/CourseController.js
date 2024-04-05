@@ -43,7 +43,7 @@ class CourseController {
         course
             .save()
             .then(() => res.redirect('/courses'))
-            .catch((error) => {});
+            .catch(next);
         // res.send('Saved');
     }
 

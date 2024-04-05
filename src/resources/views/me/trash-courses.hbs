@@ -8,8 +8,15 @@
         <thead>
             <tr>
                 <th scope='col'>#</th>
-                <th scope='col'>Tên khóa học</th>
-                <th scope='col'>Thời gian xóa</th>
+                <th scope='col'>
+                    Tên khóa học
+                    {{{sortable 'name' _sort}}}
+                </th>
+                <th scope='col'>
+                    Thời gian xóa
+                    {{{sortable 'deletedAt' _sort}}}
+
+                </th>
                 <th scope='col'>Tùy chọn </th>
             </tr>
         </thead>
@@ -18,7 +25,7 @@
                 <tr>
                     <th scope='row'>{{sum @index 1}}</th>
                     <td>{{this.name}}</td>
-                    <td>{{this.deletedAt}}</td>
+                    <td>{{formatDate this.deletedAt}}</td>
                     <td>
                         <a href='' class='btn btn-link btn-restore' data-id='{{this._id}}'>Khôi phục</a>
                         <a
