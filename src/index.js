@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const handlebars = require('express-handlebars');
 const methodOverride = require('method-override');
+const moment = require('moment');
 
 const route = require('./routers/index.router');
 const db = require('./config/db');
@@ -28,6 +29,9 @@ app.engine(
         extname: '.hbs',
         helpers: {
             sum: (a, b) => a + b,
+            formatDate: (date) => {
+                return moment(date).format('HH:mm:ss DD-MM-YYYY ');
+            }
         },
     }),
 );
